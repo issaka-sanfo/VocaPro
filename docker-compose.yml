@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+
+  mysql:
+    container_name: lankindb
+    image: mysql:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=M1xV1n1l
+      - MYSQL_DATABASE=lankin
+
+  restful:
+    build: .
+    image: restful
+    ports:
+      - "8080:8080"
+    restart: always
+#    depends_on:
+#      - mysql
+    links:
+      - mysql
+
+volumes:
+  db_data: { }
+
+#docker-compose up --build
+#docker-compose down -v
+#  docker exec -it <container Id> <comand>
+#  curl -X POST -H 'Content-Type:application/json' http://localhost:8080/article -d '{"author":"author","title":"title","body":"body from docker"}'
+#  curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/services
