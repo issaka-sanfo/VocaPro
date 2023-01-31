@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    docker-compose up -d
+                    sudo docker-compose up -d
                 '''
             }
         }
