@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo ''
-                shell('sudo docker-compose up -d')
+                sh """
+                    sud'o docker-compose up -d
+                """
             }
         }
         stage('Test'){
