@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build'
+                echo ''
                 shell('echo docker compose up -d')
             }
         }
