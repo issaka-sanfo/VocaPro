@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo ''
-                shell('echo docker compose up -d')
+                shell('sudo docker compose up -d')
             }
         }
         stage('Test'){
